@@ -1094,7 +1094,7 @@ div.tabs {
 
 .team {
   display: inline-block;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
   margin-top: 0px; }
   .team:first-child {
@@ -1105,6 +1105,9 @@ div.tabs {
     border-left: 1px solid #4a4b4e;
     margin-left: 0;
     padding-left: 20px; }
+  @media (min-width: 600px) {
+    .team {
+      margin: 20px; } }
 
 .team-name {
   display: block;
@@ -1128,14 +1131,14 @@ div.tabs {
 
 .header {
   background-size: cover;
-  height: 32rem;
+  height: 28rem;
   background-position: center;
   position: relative;
   margin-bottom: 30px; }
   @media (min-width: 600px) {
     .header {
       height: 40rem; } }
-  @media (min-width: 750px) {
+  @media (min-width: 1200px) {
     .header {
       height: 50rem; } }
 
@@ -1156,12 +1159,15 @@ div.tabs {
   margin-top: 20px;
   margin-bottom: 20px; }
   .intro-cta h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding: 0 20px; }
     @media (min-width: 600px) {
       .intro-cta h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
         padding: 0; } }
+    @media (min-width: 750px) {
+      .intro-cta h2 {
+        font-size: 2rem; } }
   @media (min-width: 1200px) {
     .intro-cta {
       max-width: 40%;

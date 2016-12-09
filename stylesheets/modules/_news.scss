@@ -5,11 +5,11 @@
 
 .news-container-two-third {
     @media (min-width: $breakpoint-30) {
-      @include grid(48);
+        @include grid(48);
     }
 
     @media (min-width: $breakpoint-40) {
-      @include grid(36);
+        @include grid(36);
     }
 }
 

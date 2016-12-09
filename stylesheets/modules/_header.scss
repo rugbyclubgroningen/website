@@ -1,6 +1,6 @@
 .header {
     background-size: cover;
-    height: 32rem;
+    height: 28rem;
     background-position: center;
     position: relative;
     margin-bottom: 30px;
@@ -9,7 +9,7 @@
         height: 40rem;
     }
 
-    @media (min-width: $breakpoint-20) {
+    @media (min-width: $breakpoint-40) {
         height: 50rem;
     }
 }
@@ -37,12 +37,16 @@
     margin-bottom: 20px;
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         padding: 0 20px;
 
         @media (min-width: $breakpoint-10) {
-            font-size: 2rem;
+            font-size: 1.6rem;
             padding: 0;
+        }
+
+        @media (min-width: $breakpoint-20) {
+            font-size: 2rem;
         }
     }
 
