@@ -1,0 +1,58 @@
+.header {
+    background-size: cover;
+    height: 28rem;
+    background-position: center;
+    position: relative;
+    margin-bottom: 30px;
+
+    @media (min-width: $breakpoint-10) {
+        height: 40rem;
+    }
+
+    @media (min-width: $breakpoint-40) {
+        height: 50rem;
+    }
+}
+
+.logo {
+    width: 200px;
+    display: inline-block;
+
+    img {
+        width: 120px;
+
+        @media (min-width: $breakpoint-10) {
+            width: 160px;
+        }
+
+        @media (min-width: $breakpoint-20) {
+            width: 200px;
+        }
+    }
+}
+
+.intro-cta {
+    color: $white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    h2 {
+        font-size: 1.4rem;
+        padding: 0 20px;
+
+        @media (min-width: $breakpoint-10) {
+            font-size: 1.6rem;
+            padding: 0;
+        }
+
+        @media (min-width: $breakpoint-20) {
+            font-size: 2rem;
+        }
+    }
+
+    @media (min-width: $breakpoint-40) {
+        max-width: 40%;
+        margin-top: 50px;
+        margin-bottom: 150px;
+    }
+}
