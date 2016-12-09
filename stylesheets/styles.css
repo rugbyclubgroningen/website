@@ -305,7 +305,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 html {
   color: #232725;
-  font: 400 100% sans-serif;
+  font: 400 100% "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -318,7 +318,7 @@ body {
   background: black; }
 
 h1, h2, legend, h3, h4, h5, h6 {
-  font-family: Helvetica;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5em;
   margin: 0 0 0.25em 0; }
 
@@ -538,7 +538,7 @@ button.button__alert {
   border-radius: 0.313rem;
   cursor: pointer;
   display: inline-block;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -778,7 +778,7 @@ select {
   border-radius: 0.125rem;
   color: inherit;
   display: block;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   margin: 0;
@@ -1151,6 +1151,9 @@ div.tabs {
       color: #fff;
       font-size: 0.75rem; }
 
+.content {
+  color: #fff; }
+
 .team {
   display: inline-block;
   margin: 10px;
@@ -1200,6 +1203,8 @@ div.tabs {
   @media (min-width: 1200px) {
     .header {
       height: 50rem; } }
+  .header.page-header {
+    height: 15rem; }
 
 .logo {
   width: 200px;
@@ -1409,7 +1414,7 @@ div.tabs {
 .pattern-library__h3 {
   font-size: 0.75rem;
   color: #636a75;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   border-bottom: 1px solid #ccd6d2;
   margin: 1rem 0 1rem 0;
   font-weight: 600;

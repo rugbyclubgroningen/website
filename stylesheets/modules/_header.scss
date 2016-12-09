@@ -12,6 +12,10 @@
     @media (min-width: $breakpoint-40) {
         height: 50rem;
     }
+
+    &.page-header {
+        height: 15rem;
+    }
 }
 
 .logo {

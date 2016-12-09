@@ -1,3 +1,7 @@
+<?php
+// Template Name: Frontpage
+?>
+
 <?php get_header(); ?>
 
 <div class="l-container is-full-width">
