@@ -5,6 +5,10 @@
 
 .news-container-two-third {
     @media (min-width: $breakpoint-30) {
+      @include grid(48);
+    }
+
+    @media (min-width: $breakpoint-40) {
       @include grid(36);
     }
 }
@@ -30,7 +34,21 @@
         font-weight: bold;
     }
 
+    h4 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
     @media (min-width: $breakpoint-30) {
+        width: 48.958335%;
+        float: left;
+
+        &:nth-child(odd) {
+            margin-right: 2.08333%;
+        }
+    }
+
+    @media (min-width: $breakpoint-40) {
         @include grid(24, 0, 1);
     }
 }
@@ -53,6 +71,13 @@
     top: 0;
 }
 
+.news-date {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    font-size: 12px;
+}
+
 .agenda-container {
     background-color: $color-neutral-70;
     border-top: 1px solid $color-secondary-50;
@@ -68,6 +93,10 @@
     }
 
     @media (min-width: $breakpoint-30) {
+      @include grid(48);
+    }
+
+    @media (min-width: $breakpoint-40) {
       @include grid(12);
       position: absolute;
       top: 0;

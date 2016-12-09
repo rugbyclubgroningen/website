@@ -1,0 +1,46 @@
+.scoreboard {
+
+}
+
+.team {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    margin-top: 0px;
+
+    &:first-child {
+        border-right: 1px solid #010205;
+        padding-right: 20px;
+        margin-right: 0;
+    }
+
+    &:nth-child(2) {
+        border-left: 1px solid #4a4b4e;
+        margin-left: 0;
+        padding-left: 20px;
+    }
+}
+
+.team-name {
+    display: block;
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 10px;
+}
+
+.team-score {
+    background: $white;
+    color: $color-primary-50;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    padding-top: 15px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+
+    &.home-team {
+        background: $color-primary-50;
+        color: $white;
+    }
+}

@@ -1092,6 +1092,40 @@ div.tabs {
     div.tabs li.is-selected a:active, div.tabs li.is-selected a:focus {
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
 
+.team {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  margin-top: 0px; }
+  .team:first-child {
+    border-right: 1px solid #010205;
+    padding-right: 20px;
+    margin-right: 0; }
+  .team:nth-child(2) {
+    border-left: 1px solid #4a4b4e;
+    margin-left: 0;
+    padding-left: 20px; }
+
+.team-name {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 10px; }
+
+.team-score {
+  background: #fff;
+  color: #D82E3A;
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  padding-top: 15px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold; }
+  .team-score.home-team {
+    background: #D82E3A;
+    color: #fff; }
+
 .header {
   background-size: cover;
   height: 32rem;
@@ -1215,6 +1249,12 @@ div.tabs {
 @media (min-width: 1000px) {
   .news-container-two-third {
     float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%; } }
+@media (min-width: 1200px) {
+  .news-container-two-third {
+    float: left;
     width: 75%;
     margin-left: 0%;
     margin-right: 0%; } }
@@ -1235,7 +1275,16 @@ div.tabs {
     font-size: 0.8rem;
     padding: 5px 5px 6px 5px;
     font-weight: bold; }
+  .news-block h4 {
+    margin-top: 20px;
+    margin-bottom: 20px; }
   @media (min-width: 1000px) {
+    .news-block {
+      width: 48.958335%;
+      float: left; }
+      .news-block:nth-child(odd) {
+        margin-right: 2.08333%; } }
+  @media (min-width: 1200px) {
     .news-block {
       float: left;
       width: 47.91667%;
@@ -1258,6 +1307,12 @@ div.tabs {
   bottom: 0;
   top: 0; }
 
+.news-date {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  font-size: 12px; }
+
 .agenda-container {
   background-color: #292a2f;
   border-top: 1px solid #f2cb31; }
@@ -1270,6 +1325,12 @@ div.tabs {
     padding: 5px 5px 6px 5px;
     font-weight: bold; }
   @media (min-width: 1000px) {
+    .agenda-container {
+      float: left;
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0%; } }
+  @media (min-width: 1200px) {
     .agenda-container {
       float: left;
       width: 25%;
