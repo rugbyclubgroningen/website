@@ -1092,6 +1092,65 @@ div.tabs {
     div.tabs li.is-selected a:active, div.tabs li.is-selected a:focus {
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
 
+.agenda-container {
+  background-color: #292a2f;
+  border-top: 1px solid #f2cb31; }
+  .agenda-container h3 {
+    background: #f2cb31;
+    color: #000;
+    display: inline-block;
+    text-transform: lowercase;
+    font-size: 0.8rem;
+    padding: 5px 5px 6px 5px;
+    font-weight: bold; }
+  @media (min-width: 1000px) {
+    .agenda-container {
+      float: left;
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0%; } }
+  @media (min-width: 1200px) {
+    .agenda-container {
+      float: left;
+      width: 31.25%;
+      margin-left: 0%;
+      margin-right: 0%;
+      position: absolute;
+      top: 0;
+      bottom: 20px;
+      right: 0; } }
+
+.agenda-list {
+  padding: 20px; }
+  .agenda-list h4 {
+    color: #f2cb31;
+    font-size: 0.75rem;
+    border-bottom: 1px solid #4a4b4e;
+    text-transform: uppercase; }
+  .agenda-list ul {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px; }
+    .agenda-list ul li {
+      list-style-type: none;
+      color: #fff;
+      font-size: 0.75rem; }
+
+.agenda-list-events {
+  border-top: 1px solid #636a75; }
+  .agenda-list-events h3 {
+    background-color: #636a75; }
+  .agenda-list-events h4 {
+    color: #636a75; }
+  .agenda-list-events ul {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px; }
+    .agenda-list-events ul li {
+      list-style-type: none;
+      color: #fff;
+      font-size: 0.75rem; }
+
 .team {
   display: inline-block;
   margin: 10px;
@@ -1099,12 +1158,12 @@ div.tabs {
   margin-top: 0px; }
   .team:first-child {
     border-right: 1px solid #010205;
-    padding-right: 20px;
+    padding-right: 10px;
     margin-right: 0; }
   .team:nth-child(2) {
     border-left: 1px solid #4a4b4e;
     margin-left: 0;
-    padding-left: 20px; }
+    padding-left: 10px; }
   @media (min-width: 600px) {
     .team {
       margin: 20px; } }
@@ -1261,7 +1320,7 @@ div.tabs {
 @media (min-width: 1200px) {
   .news-container-two-third {
     float: left;
-    width: 75%;
+    width: 68.75%;
     margin-left: 0%;
     margin-right: 0%; } }
 
@@ -1273,6 +1332,11 @@ div.tabs {
   color: #fff; }
   .news-block:nth-child(-n+2) {
     border-top: 1px solid #FC2E40; }
+  .news-block.filler {
+    display: none; }
+    @media (min-width: 1200px) {
+      .news-block.filler {
+        display: block; } }
   .news-block h3 {
     background: #FC2E40;
     color: #000;
@@ -1318,34 +1382,6 @@ div.tabs {
   right: 10px;
   top: 3px;
   font-size: 12px; }
-
-.agenda-container {
-  background-color: #292a2f;
-  border-top: 1px solid #f2cb31; }
-  .agenda-container h3 {
-    background: #f2cb31;
-    color: #000;
-    display: inline-block;
-    text-transform: lowercase;
-    font-size: 0.8rem;
-    padding: 5px 5px 6px 5px;
-    font-weight: bold; }
-  @media (min-width: 1000px) {
-    .agenda-container {
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0%; } }
-  @media (min-width: 1200px) {
-    .agenda-container {
-      float: left;
-      width: 25%;
-      margin-left: 0%;
-      margin-right: 0%;
-      position: absolute;
-      top: 0;
-      bottom: 20px;
-      right: 0; } }
 
 .pattern-library__navigation {
   list-style: none;

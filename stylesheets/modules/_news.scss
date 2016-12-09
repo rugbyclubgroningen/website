@@ -9,7 +9,7 @@
     }
 
     @media (min-width: $breakpoint-40) {
-        @include grid(36);
+        @include grid(33);
     }
 }
 
@@ -22,6 +22,14 @@
 
     &:nth-child(-n+2) {
         border-top: 1px solid $color-primary-30;
+    }
+
+    &.filler {
+        display: none;
+
+        @media (min-width: $breakpoint-40) {
+            display: block;
+        }
     }
 
     h3 {
@@ -76,31 +84,4 @@
     right: 10px;
     top: 3px;
     font-size: 12px;
-}
-
-.agenda-container {
-    background-color: $color-neutral-70;
-    border-top: 1px solid $color-secondary-50;
-
-    h3 {
-        background: $color-secondary-50;
-        color: $black;
-        display: inline-block;
-        text-transform: lowercase;
-        font-size: 0.8rem;
-        padding: 5px 5px 6px 5px;
-        font-weight: bold;
-    }
-
-    @media (min-width: $breakpoint-30) {
-      @include grid(48);
-    }
-
-    @media (min-width: $breakpoint-40) {
-      @include grid(12);
-      position: absolute;
-      top: 0;
-      bottom: 20px;
-      right: 0;
-    }
 }
