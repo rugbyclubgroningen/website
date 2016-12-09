@@ -1,8 +1,17 @@
 .header {
     background-size: cover;
-    height: 50em;
+    height: 32rem;
     background-position: center;
     position: relative;
+    margin-bottom: 30px;
+
+    @media (min-width: $breakpoint-10) {
+        height: 40rem;
+    }
+
+    @media (min-width: $breakpoint-20) {
+        height: 50rem;
+    }
 }
 
 .logo {
@@ -22,46 +31,24 @@
     }
 }
 
-
-.navigation {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    top: 20px;
-    display: none;
-
-    li {
-        display: inline;
-        margin-right: 40px;
-
-        a {
-            color: $white;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        &.nav-cta {
-            margin-left: 150px;
-        }
-    }
-
-    @media (min-width: $breakpoint-30) {
-        display: inline-block;
-        position: absolute;
-        margin-left: 50px;
-    }
-}
-
 .intro-cta {
     color: $white;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
-    @media (min-width: $breakpoint-30) {
+    h2 {
+        font-size: 1.8rem;
+        padding: 0 20px;
+
+        @media (min-width: $breakpoint-10) {
+            font-size: 2rem;
+            padding: 0;
+        }
+    }
+
+    @media (min-width: $breakpoint-40) {
         max-width: 40%;
         margin-top: 50px;
         margin-bottom: 150px;
-    }
-
-    h2 {
-        font-size: 2rem;
     }
 }

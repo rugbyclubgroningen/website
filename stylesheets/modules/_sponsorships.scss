@@ -1,0 +1,25 @@
+.sponsorships {
+    border-top: 1px solid $color-neutral-50;
+    position: relative;
+
+    h3 {
+        background: $color-neutral-50;
+        color: $black;
+        display: inline-block;
+        text-transform: lowercase;
+        font-size: 0.8rem;
+        padding: 5px 5px 6px 5px;
+        font-weight: bold;
+    }
+}
+
+.sponsorships-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-top: 20px;
+
+    li {
+        display: inline-block;
+    }
+}
