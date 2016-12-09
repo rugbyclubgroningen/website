@@ -1,5 +1,11 @@
 .scoreboard {
 
+    &.single {
+        background: $color-neutral-50;
+        float: left;
+        padding-right: 25px;
+        border-radius: 4px;
+    }
 }
 
 .team {
