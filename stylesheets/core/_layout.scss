@@ -78,6 +78,20 @@
   }
 }
 
+.l-one-fourth {
+
+  @media (min-width: $breakpoint-10) {
+    @include grid(12, 1);
+  }
+}
+
+.l-three-fourth {
+
+  @media (min-width: $breakpoint-10) {
+    @include grid(36, 1);
+  }
+}
+
 .l-first {
   clear: left;
 }

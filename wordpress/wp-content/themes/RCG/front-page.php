@@ -19,57 +19,46 @@
     <div class="l-full news-container">
         <div class="news-container-two-third">
 
-            <div class="news-block">
-                <h3>Nieuws</h3>
-                <span class="news-date">13 FEB 2016</span>
-                <div class="news-block-content">
-                    <h4>Wedstrijdverslag</h4>
-                    <div class="scoreboard">
-                        <div class="team">
-                            <div class="team-name">RC Eemland 1</div>
-                            <div class="team-score home-team">
-                                9
-                            </div>
-                        </div><div class="team">
-                            <div class="team-name">RC Groningen 1</div>
-                            <div class="team-score">
-                                72
+            <?php $news = rcg_get_posts(4); if($news->have_posts()): $i = 0;?>
+
+                <?php while($news->have_posts()): $news->the_post(); ?>
+
+                    <a href="<?php echo get_permalink(); ?>">
+                        <div class="news-block">
+                            <?php if(get_the_post_thumbnail()): ?>
+                                <div class="news-block-bg" style="background-image: url('<?php the_post_thumbnail_url(); ?>'); "></div>
+                            <?php endif; ?>
+                            <?php if($i === 0): ?>
+                                <h3>Nieuws</h3>
+                            <?php endif; ?>
+                            <span class="news-date"><?php the_date('d M Y'); ?></span>
+                            <div class="news-block-content">
+                                <h4><?php the_title(); ?></h4>
+
+                                <?php if(get_field('is_game_report')): ?>
+                                    <div class="scoreboard">
+                                        <div class="team">
+                                            <div class="team-name"><?php the_field('hometeam_name'); ?></div>
+                                            <div class="team-score home-team">
+                                                <?php the_field('hometeam_score'); ?>
+                                            </div>
+                                        </div><div class="team">
+                                            <div class="team-name"><?php the_field('outteam_name'); ?></div>
+                                            <div class="team-score">
+                                                <?php the_field('outteam_score'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+                                    <?php the_excerpt(); ?>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </a>
 
-            <div class="news-block">
-                <div class="news-block-bg" style="background-image: url('images/newsbg.png'); "></div>
-                <span class="news-date">13 FEB 2016</span>
-                <div class="news-block-content">
-                    <h4>Wedstrijdverslag</h4>
-                    <div class="scoreboard">
-                        <div class="team">
-                            <div class="team-name">RC Groningen 1</div>
-                            <div class="team-score home-team">
-                                16
-                            </div>
-                        </div><div class="team">
-                            <div class="team-name">RC Delft 1</div>
-                            <div class="team-score">
-                                3
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php $i++; endwhile; wp_reset_postdata(); ?>
 
-            <div class="news-block">
-                <span class="news-date">13 FEB 2016</span>
-                <div class="news-block-content"><h4>Nieuwe website</h4></div>
-            </div>
-
-            <div class="news-block">
-                <span class="news-date">13 FEB 2016</span>
-                <div class="news-block-content"><h4>Wedstrijd verslag</h4></div>
-            </div>
+            <?php endif; ?>
 
             <div class="news-block filler"></div>
 

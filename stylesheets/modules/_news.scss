@@ -66,6 +66,7 @@
     position: absolute;
     top: 40px;
     left: 20px;
+    right: 20px;
 }
 
 .news-block-bg {
@@ -84,4 +85,13 @@
     right: 10px;
     top: 3px;
     font-size: 12px;
+}
+
+.news-archive-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style-type: none;
+    }
 }
