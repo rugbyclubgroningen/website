@@ -44,6 +44,7 @@
                 <li><a href="/over-ons">Over ons</a></li>
                 <li><a href="/teams">Teams</a></li>
                 <li><a href="/sponsoren">Sponsoren</a></li>
+                <li><a href="/contact">Contact</a></li>
                 <li class="button nav-cta"><a href="/lid-worden">Lid worden</a></li>
             </ul>
        </div>

@@ -1,0 +1,63 @@
+// .gform_body {
+//     width: 100%;
+//
+//     @media (min-width: $breakpoint-20) {
+//         width: 60%;
+//     }
+//
+//     @media (min-width: $breakpoint-30) {
+//         width: 40%;
+//     }
+// }
+
+.gform_fields {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 20px;
+
+    li {
+        margin-bottom: 20px;
+
+        input,
+        textarea {
+            background-color: $color-neutral-10;
+            color: $black;
+        }
+
+        &.gfield_error input,
+        &.gfield_error textarea {
+            border-color: $color-alert-50;
+        }
+    }
+}
+
+.gfield_required {
+    color: $color-alert-50;
+}
+
+.validation_message {
+    color: $color-alert-50;
+}
+
+.validation_error {
+    @extend %label;
+    background-color: $color-alert-50;
+    color: $white;
+    width: 100%;
+    margin-bottom: 20px;
+    //
+    // @media (min-width: $breakpoint-20) {
+    //     width: 60%;
+    // }
+    //
+    // @media (min-width: $breakpoint-30) {
+    //     width: 40%;
+    // }
+}
+
+.address-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
