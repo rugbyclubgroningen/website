@@ -13,7 +13,7 @@
         <div class="news-container-two-third">
 
             <h2>Laatste nieuws</h2>
-            <?php $news = rcg_get_posts(1); if($news->have_posts()): $i = 0;?>
+            <?php $news = rcg_get_posts(4); if($news->have_posts()): $i = 0;?>
 
                 <?php while($news->have_posts()): $news->the_post(); ?>
 
@@ -58,9 +58,9 @@
 
         <div class="news-container-two-third">
 
-            <h2>Archief</h2>
+            <?php $news = rcg_get_posts(9999, 4); if($news->have_posts()): ?>
 
-            <?php $news = rcg_get_posts(9999, 1); if($news->have_posts()): ?>
+                <h2>Archief</h2>
 
                 <ul class="news-archive-list">
 

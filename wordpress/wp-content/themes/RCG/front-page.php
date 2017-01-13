@@ -69,48 +69,10 @@
             <h3>Agenda</h3>
 
             <div class="agenda-list">
-                <h4>Saturday 3 dec 2016</h4>
-                <ul>
-                    <li>
-                        <span class="agenda-time">11:00 AM</span>
-                        <span class="agenda-item">RC Groningen 1 - Club Friesland 1</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">12:00 PM</span>
-                        <span class="agenda-item">Junioren Gelderland - Twente 2</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">14:00 PM</span>
-                        <span class="agenda-item">Spindle - RC Groningen 1</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">14:00 AM</span>
-                        <span class="agenda-item">RC Groningen 2 - Club Friesland 2</span>
-                    </li>
-                </ul>
-
-                <h4>Saturday 10 dec 2016</h4>
-                <ul>
-                    <li>
-                        <span class="agenda-time">11:00 AM</span>
-                        <span class="agenda-item">RC Groningen 1 - Club Friesland 1</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">12:00 PM</span>
-                        <span class="agenda-item">Junioren Gelderland - Twente 2</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">14:00 PM</span>
-                        <span class="agenda-item">Spindle - RC Groningen 1</span>
-                    </li>
-                    <li>
-                        <span class="agenda-time">14:00 AM</span>
-                        <span class="agenda-item">RC Groningen 2 - Club Friesland 2</span>
-                    </li>
-                </ul>
+                <?php echo do_shortcode('[calendar id="64"]'); ?>
             </div>
 
-            <div class="agenda-list-events">
+            <!-- <div class="agenda-list-events">
                 <h3>Agenda</h3>
 
                 <div class="agenda-list">
@@ -122,7 +84,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

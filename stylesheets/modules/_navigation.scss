@@ -78,7 +78,7 @@
 
 .subnavigation {
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     display: inline-block;
     border-radius: $border-radius-20;
     width: 100%;
@@ -86,11 +86,11 @@
     li {
         list-style-type: none;
         display: block;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
 
         a {
             color: $black;
-            padding: 10px 15px;
+            padding: 0.5rem 0.9rem 0.4rem 0.9rem;
             display: block;
             background: $color-neutral-30;
 
@@ -100,5 +100,11 @@
                 color: $white;
             }
         }
+    }
+
+
+
+    @media (min-width: $breakpoint-10) {
+        padding: 0;
     }
 }

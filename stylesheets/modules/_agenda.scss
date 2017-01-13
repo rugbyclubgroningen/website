@@ -28,11 +28,22 @@
 .agenda-list {
     padding: 20px;
 
-    h4 {
+    h4,
+    .simcal-day-label {
+        // Ugly CSS because Simple Calendar works with inline styling.
         color: $color-secondary-50;
         font-size: 0.75rem;
-        border-bottom: 1px solid #4a4b4e;
+        border-bottom: 1px solid #4a4b4e !important;
         text-transform: uppercase;
+
+        > span {
+            color: $color-secondary-50 !important;
+            background: none !important;
+        }
+    }
+
+    .simcal-event-details p {
+        margin-bottom: 0;
     }
 
     ul {

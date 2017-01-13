@@ -1,3 +1,8 @@
 .content {
     color: $white;
+    padding: 20px;
+
+    @media (min-width: $breakpoint-10) {
+        padding: 0;
+    }
 }

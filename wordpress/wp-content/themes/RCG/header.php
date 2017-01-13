@@ -21,7 +21,13 @@
 </head>
 <body>
 
-    <div class="l-wrapper header <?php if(!is_front_page()):?>page-header<?php endif; ?>" style="background-image: url('/images/header.png');">
+    <?php if($header_image_arr = get_field('header_image')): ?>
+        <?php $header_image = $header_image_arr['sizes']['large']; ?>
+    <?php else: ?>
+        <?php $header_image = '/images/header.png'; ?>
+    <?php endif; ?>
+
+    <div class="l-wrapper header <?php if(!is_front_page()):?>page-header<?php endif; ?>" style="background-image: url('<?php echo $header_image; ?>');">
         <div class="l-full">
             <div class="logo">
                 <img src="/images/logo.svg" alt="Rugby Club Groningen"/>

@@ -1,0 +1,55 @@
+{
+    "key": "group_5878a5a5f00a3",
+    "title": "Extra paginainformatie",
+    "fields": [
+        {
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "key": "field_5878a5ae9ded8",
+            "label": "Headerfoto",
+            "name": "header_image",
+            "type": "image",
+            "instructions": "Kies hier de foto die je wil instellen als headerfoto op deze pagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Extra informatie zoals headerfoto's, e.d.",
+    "modified": 1484302503
+}
