@@ -9,11 +9,14 @@
     <div class="l-full content">
         <h1><?php the_title(); ?></h1>
         <?php the_content(); ?>
+    </div>
+
+    <div class="l-container is-full-width">
+        <div class="l-full news-container">
 
         <div class="news-container-two-third">
 
-            <h2>Laatste nieuws</h2>
-            <?php $news = rcg_get_posts(4); if($news->have_posts()): $i = 0;?>
+            <?php $news = rcg_get_posts(6); if($news->have_posts()): $i = 0;?>
 
                 <?php while($news->have_posts()): $news->the_post(); ?>
 
@@ -56,9 +59,31 @@
 
         </div>
 
+        <div class="agenda-container">
+            <h3>Agenda</h3>
+
+            <div class="agenda-list">
+                <?php echo do_shortcode('[calendar id="64"]'); ?>
+            </div>
+
+            <!-- <div class="agenda-list-events">
+                <h3>Agenda</h3>
+
+                <div class="agenda-list">
+                    <h4>Tuesday 5 dec 2016</h4>
+                    <ul>
+                        <li>
+                            <span class="agenda-time">19:00 PM</span>
+                            <span class="agenda-item">Sinterklaas celebrations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+
         <div class="news-container-two-third">
 
-            <?php $news = rcg_get_posts(9999, 4); if($news->have_posts()): ?>
+            <?php $news = rcg_get_posts(9999, 6); if($news->have_posts()): ?>
 
                 <h2>Archief</h2>
 
@@ -75,6 +100,9 @@
 
             <?php endif; ?>
         </div>
+
+    </div>
+</div>
 
     </div>
 </div>
