@@ -68,19 +68,13 @@
                 <?php echo do_shortcode('[calendar id="64"]'); ?>
             </div>
 
-            <!-- <div class="agenda-list-events">
-                <h3>Agenda</h3>
+            <div class="agenda-list-events">
+                <h3>Evenementen</h3>
 
                 <div class="agenda-list">
-                    <h4>Tuesday 5 dec 2016</h4>
-                    <ul>
-                        <li>
-                            <span class="agenda-time">19:00 PM</span>
-                            <span class="agenda-item">Sinterklaas celebrations</span>
-                        </li>
-                    </ul>
+                    <?php echo do_shortcode('[calendar id="260"]'); ?>
                 </div>
-            </div> -->
+            </div>
         </div>
 
         <div class="news-container-two-third">
