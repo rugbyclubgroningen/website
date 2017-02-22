@@ -25,3 +25,15 @@ function rcg_get_sticky_posts() {
     ));
 
 }
+
+function rcg_get_navigation() {
+    $args = array(
+       'sort_order' => 'asc',
+       'sort_column' => 'menu_order',
+       'parent' => 0,
+       'post_type' => 'page',
+       'post_status' => 'publish'
+    );
+
+    return get_pages($args);
+}

@@ -22,6 +22,21 @@ html {
 body {
   height: 100%;
   background: black;
+
+  &.nav-open {
+      overflow-y: hidden;
+      overflow-x: hidden;
+
+      .navigation {
+          display: block;
+      }
+
+      .navigation-desc {
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0s .3s, opacity .3s linear;
+      }
+  }
 }
 
 
@@ -121,4 +136,10 @@ dl {
 
     dd { @include grid(32); }
   }
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
 }

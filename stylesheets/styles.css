@@ -316,6 +316,15 @@ html {
 body {
   height: 100%;
   background: black; }
+  body.nav-open {
+    overflow-y: hidden;
+    overflow-x: hidden; }
+    body.nav-open .navigation {
+      display: block; }
+    body.nav-open .navigation-desc {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s .3s, opacity .3s linear; }
 
 h1, h2, legend, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
@@ -421,6 +430,11 @@ dl {
     width: 66.66667%;
     margin-left: 0%;
     margin-right: 0%; }
+
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto; }
 
 .u-hidden {
   display: none !important; }
@@ -1273,31 +1287,57 @@ div.tabs {
       margin-bottom: 150px; } }
 
 .navigation {
-  list-style-type: none;
   margin: 0;
-  padding: 0;
-  top: 20px;
-  display: none; }
+  padding: 50px;
+  padding-top: 120px;
+  display: none;
+  overflow: hidden;
+  left: 0;
+  top: 0px;
+  right: 0;
+  background: #000;
+  text-align: center;
+  position: absolute;
+  z-index: 100;
+  height: 100vh; }
   .navigation li {
-    display: inline-block;
-    margin-right: 40px;
-    vertical-align: middle; }
+    display: block;
+    vertical-align: middle;
+    list-style-type: none;
+    margin-bottom: 1rem; }
     .navigation li a {
       color: #fff;
       font-size: 20px;
       font-weight: bold; }
-    .navigation li.nav-cta {
-      margin-left: 80px; }
+      .navigation li a.active, .navigation li a:hover {
+        color: #FC2E40; }
+    .navigation li.nav-cta a:hover {
+      color: #fff; }
   @media (min-width: 1200px) {
     .navigation {
+      background: none;
+      margin-left: 50px;
+      padding: 0;
+      top: 20px;
+      right: auto;
+      left: auto;
       display: inline-block;
-      position: absolute;
-      margin-left: 50px; } }
+      text-align: left;
+      height: auto; }
+      .navigation li {
+        display: inline-block;
+        margin-right: 30px; } }
+  @media (min-width: 1400px) {
+    .navigation li {
+      margin-right: 40px; }
+      .navigation li.nav-cta {
+        margin-left: 80px; } }
 
 .navigation-toggle {
   position: absolute;
   top: 30px;
-  right: 30px; }
+  right: 30px;
+  z-index: 1000; }
   .navigation-toggle .navigation-desc {
     display: inline-block;
     color: #fff;
@@ -1317,14 +1357,16 @@ div.tabs {
     background-color: #fff;
     margin-bottom: 3px;
     transition: all 0.3s linear; }
-  .navigation-symbol.nav-open span:nth-child(1), .navigation-symbol.nav-open span:nth-child(3) {
-    transform: translate(0px, 11px) rotate(-45deg) scalex(1.3);
-    margin: 0; }
-  .navigation-symbol.nav-open span:nth-child(2) {
-    height: 0;
-    margin: 0; }
-  .navigation-symbol.nav-open span:nth-child(3) {
-    transform: translate(0px, 7px) rotate(45deg) scalex(1.3); }
+  .navigation-symbol.nav-open {
+    vertical-align: top; }
+    .navigation-symbol.nav-open span:nth-child(1), .navigation-symbol.nav-open span:nth-child(3) {
+      transform: translate(0px, 11px) rotate(-45deg) scalex(1.3);
+      margin: 0; }
+    .navigation-symbol.nav-open span:nth-child(2) {
+      height: 0;
+      margin: 0; }
+    .navigation-symbol.nav-open span:nth-child(3) {
+      transform: translate(0px, 7px) rotate(45deg) scalex(1.3); }
 
 .subnavigation {
   margin: 0;
@@ -1451,15 +1493,15 @@ div.tabs {
   .news-archive-list li {
     list-style-type: none; }
 
-.team-container {
+.sub-container {
   float: left;
   width: 108.33333%;
   margin-left: -4.16667%;
   margin-right: -4.16667%; }
-  .team-container:before, .team-container:after {
+  .sub-container:before, .sub-container:after {
     content: "";
     display: table; }
-  .team-container:after {
+  .sub-container:after {
     clear: both; }
 
 .gform_fields {

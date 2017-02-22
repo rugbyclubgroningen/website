@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-title" content="">
     <meta name="theme-color" content="#d82e3a">
-    <meta name="msapplication-TileImage" content="favicon-144.png">
+    <meta name="msapplication-TileImage" content="/favicon-144.png">
     <meta name="msapplication-TileColor" content="#d82e3a">
 
     <title>Rugby Club Groningen</title>
@@ -16,8 +16,22 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="shortcut icon" href="favicon-32.ico">
-    <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+    <link rel="shortcut icon" href="/favicon-32.ico">
+    <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
+    <script type="text/javascript">
+        $('document').ready(function() {
+            $('.navigation-toggle').on('click', function() {
+                $('body').toggleClass('nav-open');
+                $('.navigation-symbol').toggleClass('nav-open');
+                return false;
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -38,15 +52,18 @@
                  <div class="navigation-symbol"><span></span><span></span><span></span></div>
              </a>
 
-            <ul class="navigation">
-                <li><a href="/">Home</a></li>
-                <li><a href="/nieuws">Nieuws</a></li>
-                <li><a href="/over-ons">Over ons</a></li>
-                <li><a href="/teams">Teams</a></li>
-                <li><a href="/sponsoren">Sponsoren</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li class="button nav-cta"><a href="/lid-worden">Lid worden</a></li>
-            </ul>
+            <?php if($pages = rcg_get_navigation()): ?>
+                <ul class="navigation">
+                    <?php foreach($pages as $page): ?>
+                        <li<?php if($page->ID === 13): ?> class="button nav-cta"<?php endif; ?>>
+                            <a <?php if(get_the_ID() === $page->ID || wp_get_post_parent_id(get_the_ID()) === $page->ID): ?>class="active"<?php endif; ?> href="<?php echo get_permalink($page->ID); ?>">
+                                <?php echo $page->post_title; ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+
        </div>
 
        <?php if(is_front_page()): ?>
