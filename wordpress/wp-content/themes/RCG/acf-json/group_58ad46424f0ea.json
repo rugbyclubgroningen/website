@@ -1,0 +1,78 @@
+{
+    "key": "group_58ad46424f0ea",
+    "title": "Intro content",
+    "fields": [
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58ad4706cf5f9",
+            "label": "Intro tekst",
+            "name": "intro",
+            "type": "text",
+            "instructions": "Deze tekst komt op de grote headerfoto te staan. Probeer deze bondig te houden voor het mooiste resultaat.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "key": "field_58ad4736cf5fa",
+            "label": "Intro button tekst",
+            "name": "intro_button_text",
+            "type": "text",
+            "instructions": "Deze button is optioneel, als je dit veld leeg laat zal de button niet verschijnen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "placeholder": "",
+            "key": "field_58ad4774cf5fb",
+            "label": "Intro button link",
+            "name": "intro_button_link",
+            "type": "url",
+            "instructions": "Voeg hier de URL voor de button toe.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "front-page.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Velden voor het intro vlak op de homepage.",
+    "modified": 1487751393
+}

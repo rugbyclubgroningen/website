@@ -13,6 +13,10 @@
             <div class="l-three-fourth content">
                 <h1><?php the_title(); ?></h1>
                 <?php the_content(); ?>
+
+                <?php if($scorebutton = get_field('scores_button')): ?>
+                    <a class="button" href="<?php echo $scorebutton; ?>">Bekijk de laatste uitslagen</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

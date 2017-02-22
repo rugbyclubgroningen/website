@@ -1,0 +1,40 @@
+{
+    "key": "group_58ad8698a36d9",
+    "title": "Extra team informatie",
+    "fields": [
+        {
+            "default_value": "",
+            "placeholder": "",
+            "key": "field_58ad86a1eea98",
+            "label": "Uitslagen button",
+            "name": "scores_button",
+            "type": "url",
+            "instructions": "Voeg hier de URL naar de uitslagen van dit team toe, er komt dan automatisch onderaan de team pagina een rode knop te staan met deze URL.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "teams-page.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1487767260
+}

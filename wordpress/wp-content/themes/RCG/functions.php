@@ -26,6 +26,7 @@ function rcg_get_sticky_posts() {
 
 }
 
+// Get parent pages for the navigation.
 function rcg_get_navigation() {
     $args = array(
        'sort_order' => 'asc',
@@ -36,4 +37,15 @@ function rcg_get_navigation() {
     );
 
     return get_pages($args);
+}
+
+// Add an option page to maintain sponsors.
+if(function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Sponsoren',
+		'menu_title'	=> 'Sponsoren',
+		'menu_slug' 	=> 'sponsoren',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }
