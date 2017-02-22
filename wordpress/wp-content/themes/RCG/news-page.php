@@ -14,6 +14,8 @@
     <div class="l-container is-full-width">
         <div class="l-full news-container">
 
+        <?php get_template_part('_sticky_posts'); ?>
+
         <div class="news-container-two-third">
 
             <?php $news = rcg_get_posts(6); if($news->have_posts()): $i = 0;?>

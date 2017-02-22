@@ -50,13 +50,17 @@
        </div>
 
        <?php if(is_front_page()): ?>
-           <div class="l-full intro-cta">
-               <h2>"Rugby is great. The players don't wear helmets or padding; they just beat the living daylights out of each other and then go for a beer. I love that."</h2>
-           </div>
+           <?php if($intro = get_field('intro')): ?>
+               <div class="l-full intro-cta">
+                   <h2><?php echo $intro; ?></h2>
+               </div>
+           <?php endif; ?>
 
-           <div class="l-full u-text-center">
-               <a href="#" class="button is-cta">Deelnemen aan introductie training</a>
-           </div>
+           <?php if(get_field('intro_button_text') && get_field('intro_button_link')): ?>
+               <div class="l-full u-text-center">
+                   <a href="<?php the_field('intro_button_link'); ?>" class="button is-cta"><?php the_field('intro_button_text'); ?></a>
+               </div>
+           <?php endif; ?>
         <?php endif; ?>
 
    </div>

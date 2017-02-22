@@ -5,17 +5,6 @@
 <?php get_header(); ?>
 
 <div class="l-container is-full-width">
-    <div class="l-full sponsorships">
-        <h3>Sponsors</h3>
-
-        <ul class="sponsorships-list">
-            <li><img src="images/spindle.png" alt="Devhouse Spindle"/></li>
-            <li><img src="images/wysz_fysio.png" alt="WYSZ Fysiotherapie" /></li>
-        </ul>
-    </div>
-</div>
-
-<div class="l-container is-full-width">
     <div class="l-full news-container">
         <div class="news-container-two-third">
 
@@ -86,6 +75,17 @@
                 </div>
             </div> -->
         </div>
+    </div>
+</div>
+
+<div class="l-container is-full-width">
+    <div class="l-full sponsorships">
+        <h3>Sponsors</h3>
+
+        <ul class="sponsorships-list">
+            <li><img src="images/spindle.png" alt="Devhouse Spindle"/></li>
+            <li><img src="images/wysz_fysio.png" alt="WYSZ Fysiotherapie" /></li>
+        </ul>
     </div>
 </div>
 
