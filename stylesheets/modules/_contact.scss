@@ -61,3 +61,9 @@
     margin: 0;
     padding: 0;
 }
+
+.l-half-contact {
+    @media (min-width: $breakpoint-10) {
+        @include grid(24, 0, 1);
+    }
+}

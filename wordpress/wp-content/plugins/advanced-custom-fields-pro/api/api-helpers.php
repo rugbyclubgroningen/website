@@ -239,6 +239,73 @@ function acf_include( $file ) {
 
 
 /*
+*  acf_get_external_path
+*
+*  This function will return the path to a file within an external folder
+*
+*  @type	function
+*  @date	22/2/17
+*  @since	5.5.8
+*
+*  @param	$file (string)
+*  @param	$path (string)
+*  @return	(string)
+*/
+
+function acf_get_external_path( $file, $path = '' ) {
+    
+    return trailingslashit( dirname( $file ) ) . $path;
+    
+}
+
+
+/*
+*  acf_get_external_dir
+*
+*  This function will return the url to a file within an external folder
+*
+*  @type	function
+*  @date	22/2/17
+*  @since	5.5.8
+*
+*  @param	$file (string)
+*  @param	$path (string)
+*  @return	(string)
+*/
+
+function acf_get_external_dir( $file, $path = '' ) {
+    
+    // vars
+    $external_url = '';
+    $external_path = acf_get_external_path( $file, $path );
+    $wp_plugin_path = wp_normalize_path(WP_PLUGIN_DIR);
+    $wp_content_path = wp_normalize_path(WP_CONTENT_DIR);
+    $wp_path = wp_normalize_path(ABSPATH);
+    
+    
+    // wp-content/plugins
+    if( strpos($external_path, $wp_plugin_path) === 0 ) {
+	    
+	    return str_replace($wp_plugin_path, plugins_url(), $external_path);
+	  
+    }
+    
+    
+    // wp-content
+    if( strpos($external_path, $wp_content_path) === 0 ) {
+	    
+	    return str_replace($wp_content_path, content_url(), $external_path);
+	
+	}
+	
+	
+	// return
+	return str_replace($wp_path, home_url(), $external_path);
+	
+}
+
+
+/*
 *  acf_parse_args
 *
 *  This function will merge together 2 arrays and also convert any numeric values to ints
@@ -626,7 +693,7 @@ function acf_get_post_types( $args = array() ) {
 	$exclude[] = 'acf-field';
 	$exclude[] = 'acf-field-group';
 	
-	
+		
 	// loop
 	foreach( $post_types as $i => $post_type ) {
 		
@@ -1022,6 +1089,26 @@ function acf_get_full_version( $version = '1' ) {
 
 
 /*
+*  acf_get_locale
+*
+*  This function is a wrapper for the get_locale() function
+*
+*  @type	function
+*  @date	16/12/16
+*  @since	5.5.0
+*
+*  @param	n/a
+*  @return	(string)
+*/
+
+function acf_get_locale() {
+	
+	return function_exists('get_user_locale') ? get_user_locale() : get_locale();
+	
+}
+
+
+/*
 *  acf_get_terms
 *
 *  This function is a wrapper for the get_terms() function
@@ -1319,7 +1406,7 @@ function acf_decode_taxonomy_terms( $strings = false ) {
 /*
 *  acf_decode_taxonomy_term
 *
-*  This function will convert a term string into an array of term data
+*  This function will return the taxonomy and term slug for a given value
 *
 *  @type	function
 *  @date	31/03/2014
@@ -1329,34 +1416,71 @@ function acf_decode_taxonomy_terms( $strings = false ) {
 *  @return	(array)
 */
 
-function acf_decode_taxonomy_term( $string ) {
+function acf_decode_taxonomy_term( $value ) {
 	
 	// vars
-	$r = array();
+	$data = array(
+		'taxonomy'	=> '',
+		'term'		=> ''
+	);
 	
 	
-	// vars
-	$data = explode(':', $string);
-	$taxonomy = 'category';
-	$term = '';
-	
-	
-	// check data
-	if( isset($data[1]) ) {
+	// int
+	if( is_numeric($value) ) {
 		
-		$taxonomy = $data[0];
-		$term = $data[1];
+		$data['term'] = $value;
+			
+	// string
+	} elseif( is_string($value) ) {
+		
+		$value = explode(':', $value);
+		$data['taxonomy'] = isset($value[0]) ? $value[0] : '';
+		$data['term'] = isset($value[1]) ? $value[1] : '';
+		
+	// error	
+	} else {
+		
+		return false;
 		
 	}
 	
 	
-	// add data to $r
-	$r['taxonomy'] = $taxonomy;
-	$r['term'] = $term;
+	// allow for term_id (Used by ACF v4)
+	if( is_numeric($data['term']) ) {
+		
+		// global
+		global $wpdb;
+		
+		
+		// find taxonomy
+		if( !$data['taxonomy'] ) {
+			
+			$data['taxonomy'] = $wpdb->get_var( $wpdb->prepare("SELECT taxonomy FROM $wpdb->term_taxonomy WHERE term_id = %d LIMIT 1", $data['term']) );
+			
+		}
+		
+		
+		// find term (may have numeric slug '123')
+		$term = get_term_by( 'slug', $data['term'], $data['taxonomy'] );
+		
+		
+		// attempt get term via ID (ACF4 uses ID)
+		if( !$term ) $term = get_term( $data['term'], $data['taxonomy'] );
+		
+		
+		// bail early if no term
+		if( !$term ) return false;
+		
+		
+		// update
+		$data['taxonomy'] = $term->taxonomy;
+		$data['term'] = $term->slug;
+		
+	}
 	
 	
 	// return
-	return $r;
+	return $data;
 	
 }
 
@@ -1470,9 +1594,11 @@ function acf_get_posts( $args = array() ) {
 	// defaults
 	// leave suppress_filters as true becuase we don't want any plugins to modify the query as we know exactly what 
 	$args = wp_parse_args( $args, array(
-		'posts_per_page'	=> -1,
-		'post_type'			=> '',
-		'post_status'		=> 'any'
+		'posts_per_page'			=> -1,
+		'post_type'					=> '',
+		'post_status'				=> 'any',
+		'update_post_meta_cache'	=> false,
+		'update_post_term_cache' 	=> false
 	));
 	
 
@@ -2125,7 +2251,7 @@ function acf_json_encode( $json ) {
 	// PHP at least 5.4
 	if( version_compare(PHP_VERSION, '5.4.0', '>=') ) {
 		
-		return json_encode($json, JSON_PRETTY_PRINT);
+		return json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		
 	}
 
@@ -2817,6 +2943,10 @@ function acf_in_array( $value = '', $array = false ) {
 
 function acf_get_valid_post_id( $post_id = 0 ) {
 	
+	// vars
+	$_post_id = $post_id;
+	
+	
 	// if not $post_id, load queried object
 	if( !$post_id ) {
 		
@@ -2849,8 +2979,8 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 		
 		// term
 		} elseif( isset($post_id->taxonomy, $post_id->term_id) ) {
-		
-			$post_id = 'term_' . $post_id->term_id;
+			
+			$post_id = acf_get_term_post_id( $post_id->taxonomy, $post_id->term_id );
 		
 		// comment
 		} elseif( isset($post_id->comment_ID) ) {
@@ -2886,7 +3016,7 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 			$post_id .= '_' . $cl;
 			
 		}
-		
+			
 	}
 	
 	
@@ -2923,6 +3053,10 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 		}
 		
 	}
+	
+	
+	// filter for 3rd party
+	$post_id = apply_filters('acf/validate_post_id', $post_id, $_post_id);
 	
 	
 	// return
@@ -2977,7 +3111,7 @@ function acf_get_post_id_info( $post_id = 0 ) {
 		$type = explode($glue, $post_id);
 		$id = array_pop($type);
 		$type = implode($glue, $type);
-		$meta = array('post', 'user', 'comment', 'term'); // add in 'term'
+		$meta = array('post', 'user', 'comment', 'term');
 		
 		
 		// check if is taxonomy (ACF < 5.5)
@@ -3010,6 +3144,7 @@ function acf_get_post_id_info( $post_id = 0 ) {
 	return $info;
 	
 }
+
 
 /*
 
@@ -3061,6 +3196,36 @@ function acf_isset_termmeta( $taxonomy = '' ) {
 	// return
 	return true;
 		
+}
+
+
+/*
+*  acf_get_term_post_id
+*
+*  This function will return a valid post_id string for a given term and taxonomy
+*
+*  @type	function
+*  @date	6/2/17
+*  @since	5.5.6
+*
+*  @param	$taxonomy (string)
+*  @param	$term_id (int)
+*  @return	(string)
+*/
+
+function acf_get_term_post_id( $taxonomy, $term_id ) {
+	
+	// WP < 4.4
+	if( !acf_isset_termmeta() ) {
+		
+		return $taxonomy . '_' . $term_id;
+		
+	}
+	
+	
+	// return
+	return 'term_' . $term_id;
+	
 }
 
 
@@ -3821,7 +3986,8 @@ function acf_validate_attachment( $attachment, $field, $context = 'prepare' ) {
 	// custom
 	} else {
 		
-		$file = wp_parse_args($file, $attachment);
+		$file = array_merge($file, $attachment);
+		$file['type'] = pathinfo($attachment['url'], PATHINFO_EXTENSION);
 		
 	}
 	
@@ -4081,7 +4247,8 @@ function acf_translate( $string ) {
 function acf_maybe_add_action( $tag, $function_to_add, $priority = 10, $accepted_args = 1 ) {
 	
 	// if action has already run, execute it
-	if( did_action($tag) ) {
+	// - if currently doing action, allow $tag to be added as per usual to allow $priority ordering needed for 3rd party asset compatibility
+	if( did_action($tag) && !doing_action($tag) ) {
 			
 		call_user_func( $function_to_add );
 	
@@ -4887,6 +5054,79 @@ function _acf_settings_slug( $v ) {
     $slug = current($slug);
 	
 	return $slug;
+}
+
+
+
+
+/*
+*  acf_strip_protocol
+*
+*  This function will remove the proticol from a url 
+*  Used to allow licences to remain active if a site is switched to https 
+*
+*  @type	function
+*  @date	10/01/2017
+*  @since	5.5.4
+*  @author	Aaron 
+*
+*  @param	$url (string)
+*  @return	(string) 
+*/
+
+function acf_strip_protocol( $url ) {
+		
+	// strip the protical 
+	return str_replace(array('http://','https://'), '', $url);
+
+}
+
+
+/*
+*  acf_connect_attachment_to_post
+*
+*  This function will connect an attacment (image etc) to the post 
+*  Used to connect attachements uploaded directly to media that have not been attaced to a post
+*
+*  @type	function
+*  @date	11/01/2017
+*  @since	5.5.4
+*
+*  @param	$attachment_id (int)
+*  @param	$post_id (int)
+*  @return	(boolean) 
+*/
+
+function acf_connect_attachment_to_post( $attachment_id = 0, $post_id = 0 ) {
+	
+	// bail ealry if $attachment_id is not valid
+	if( !$attachment_id || !is_numeric($attachment_id) ) return false;
+	
+	
+	// bail ealry if $post_id is not valid
+	if( !$post_id || !is_numeric($post_id) ) return false;
+	
+	
+	// vars 
+	$post = get_post( $attachment_id );
+	
+	
+	// check if valid post
+	if( $post && $post->post_type == 'attachment' && $post->post_parent == 0 ) {
+		
+		// update
+		wp_update_post( array('ID' => $post->ID, 'post_parent' => $post_id) );
+		
+		
+		// return
+		return true;
+		
+	}
+	
+	
+	// return
+	return true;
+
 }
 
 ?>

@@ -529,7 +529,7 @@ img {
     margin-left: 2.08333%;
     margin-right: 2.08333%; } }
 
-@media (min-width: 600px) {
+@media (min-width: 750px) {
   .l-three-fourth {
     float: left;
     width: 70.83333%;
@@ -1132,7 +1132,7 @@ div.tabs {
     background: #f2cb31;
     color: #000;
     display: inline-block;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 0.8rem;
     padding: 5px 5px 6px 5px;
     font-weight: bold; }
@@ -1259,6 +1259,8 @@ div.tabs {
 .logo {
   width: 200px;
   display: inline-block; }
+  .logo a {
+    display: block; }
   .logo img {
     width: 120px; }
     @media (min-width: 600px) {
@@ -1379,27 +1381,54 @@ div.tabs {
   .subnavigation li {
     list-style-type: none;
     display: block;
-    margin-bottom: 1px; }
+    border-bottom: 1px solid #32363b;
+    font-weight: bold; }
     .subnavigation li a {
-      color: #000;
+      color: #fff;
       padding: 0.5rem 0.9rem 0.4rem 0.9rem;
       display: block;
-      background: #ccd6d2; }
-      .subnavigation li a:hover, .subnavigation li a.active {
-        background-color: #D82E3A;
-        color: #fff; }
+      background: #282a2f;
+      font-size: 0.95rem; }
+      .subnavigation li a:hover {
+        background: #646877; }
+      .subnavigation li a.active {
+        box-shadow: inset 3px 0px 0px 0px #FC2E40; }
+    .subnavigation li:last-child {
+      border-bottom: 0; }
+    .subnavigation li:first-child {
+      border-top: 1px solid #32363b; }
   @media (min-width: 600px) {
     .subnavigation {
       padding: 0; } }
 
+.subnav-container {
+  background: #282a2f;
+  border-top: 1px solid #32363b; }
+  .subnav-container h3 {
+    background: #646877;
+    color: #000;
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 5px 5px 6px 5px;
+    font-weight: bold;
+    margin-bottom: 1rem; }
+  @media (min-width: 750px) {
+    .subnav-container {
+      float: left;
+      width: 22.91667%;
+      margin-left: 0%;
+      margin-right: 2.08333%; } }
+
 .sponsorships {
   border-top: 1px solid #636a75;
-  position: relative; }
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   .sponsorships h3 {
     background: #636a75;
     color: #000;
     display: inline-block;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 0.8rem;
     padding: 5px 5px 6px 5px;
     font-weight: bold; }
@@ -1410,7 +1439,21 @@ div.tabs {
   list-style-type: none;
   margin-top: 20px; }
   .sponsorships-list li {
-    display: inline-block; }
+    height: 50px;
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem; }
+    .sponsorships-list li a {
+      display: block; }
+    .sponsorships-list li img {
+      vertical-align: middle; }
+    @media (min-width: 600px) {
+      .sponsorships-list li {
+        width: 15%;
+        margin-right: 3rem;
+        display: inline-block;
+        text-align: left; } }
 
 .news-container {
   position: relative;
@@ -1446,7 +1489,7 @@ div.tabs {
     background: #FC2E40;
     color: #000;
     display: inline-block;
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 0.8rem;
     padding: 5px 5px 6px 5px;
     font-weight: bold; }
@@ -1536,6 +1579,13 @@ div.tabs {
   list-style: none;
   margin: 0;
   padding: 0; }
+
+@media (min-width: 600px) {
+  .l-half-contact {
+    float: left;
+    width: 47.91667%;
+    margin-left: 0%;
+    margin-right: 2.08333%; } }
 
 .social-media {
   position: absolute;

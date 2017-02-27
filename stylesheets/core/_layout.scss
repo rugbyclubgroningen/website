@@ -87,7 +87,7 @@
 
 .l-three-fourth {
 
-  @media (min-width: $breakpoint-10) {
+  @media (min-width: $breakpoint-20) {
     @include grid(36, 1);
   }
 }

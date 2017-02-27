@@ -15,7 +15,7 @@
     <meta name="author" content="RCG">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="shortcut icon" href="/favicon-32.ico">
     <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
@@ -45,7 +45,7 @@
     <div class="l-wrapper header <?php if(!is_front_page()):?>page-header<?php endif; ?>" style="background-image: url('<?php echo $header_image; ?>');">
         <div class="l-full">
             <div class="logo">
-                <img src="/images/logo.svg" alt="Rugby Club Groningen"/>
+                <a href="/"><img src="/images/logo.png" alt="Rugby Club Groningen"/></a>
             </div>
 
              <a href="#" class="navigation-toggle">
@@ -69,8 +69,8 @@
                 <ul>
                     <li><a class="twitter" href="https://twitter.com/RCGroningen"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="facebook" href="https://www.facebook.com/rcgroningen"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="http://teamer.net"><img src="images/teamer.png" /></a></li>
-                    <li><a href="http://teamers.com"><img src="images/teamers.png" /></a></li>
+                    <li><a href="http://teamer.net"><img src="/images/teamer.png" /></a></li>
+                    <li><a href="http://teamers.com"><img src="/images/teamers.png" /></a></li>
                 </ul>
             </div>
 

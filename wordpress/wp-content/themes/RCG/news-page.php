@@ -5,14 +5,12 @@
 <?php get_header(); ?>
 <?php the_post(); ?>
 
-<div class="l-container is-full-width">
     <div class="l-full content">
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
     </div>
 
-    <div class="l-container is-full-width">
-        <div class="l-full news-container">
+    <div class="l-full news-container">
 
         <?php get_template_part('_sticky_posts'); ?>
 
@@ -98,9 +96,7 @@
         </div>
 
     </div>
-</div>
 
-    </div>
 </div>
 
 <?php get_footer(); ?>
