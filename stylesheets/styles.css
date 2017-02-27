@@ -1457,7 +1457,11 @@ div.tabs {
 
 .news-container {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0 1rem; }
+  @media (min-width: 600px) {
+    .news-container {
+      padding: 0; } }
 
 @media (min-width: 1000px) {
   .news-container-two-third {
