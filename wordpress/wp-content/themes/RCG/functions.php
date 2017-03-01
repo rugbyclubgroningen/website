@@ -49,3 +49,8 @@ if(function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
+
+// Limit the excerpt length for better readability in the design.
+function rcg_excerpt_length( $length ) {
+	return 35;
+} add_filter( 'excerpt_length', 'rcg_excerpt_length', 999 );

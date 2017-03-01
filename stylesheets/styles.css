@@ -1180,8 +1180,12 @@ div.tabs {
   border-top: 1px solid #636a75; }
   .agenda-list-events h3 {
     background-color: #636a75; }
-  .agenda-list-events h4 {
+  .agenda-list-events h4,
+  .agenda-list-events .simcal-day-label {
     color: #636a75; }
+    .agenda-list-events h4 > span,
+    .agenda-list-events .simcal-day-label > span {
+      color: #636a75 !important; }
   .agenda-list-events ul {
     margin: 0;
     padding: 0;

@@ -70,8 +70,13 @@
         background-color: $color-neutral-50;
     }
 
-    h4 {
+    h4,
+    .simcal-day-label {
         color: $color-neutral-50;
+
+        > span {
+            color: $color-neutral-50 !important;
+        }
     }
 
     ul {

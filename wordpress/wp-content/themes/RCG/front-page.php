@@ -8,7 +8,7 @@
     <div class="l-full news-container">
         <div class="news-container-two-third">
 
-            <?php $news = rcg_get_posts(4); if($news->have_posts()): $i = 0;?>
+            <?php $news = rcg_get_posts(6); if($news->have_posts()): $i = 0;?>
 
                 <?php while($news->have_posts()): $news->the_post(); ?>
 
@@ -49,9 +49,6 @@
 
             <?php endif; ?>
 
-            <div class="news-block filler"></div>
-
-            <div class="news-block filler"></div>
         </div>
 
         <div class="agenda-container">
