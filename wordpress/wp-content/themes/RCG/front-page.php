@@ -5,7 +5,7 @@
 <?php get_header(); ?>
 
 <div class="l-container is-full-width">
-    <div class="l-full news-container">
+    <div class="l-full news-container-full">
         <div class="news-container-two-third">
 
             <?php $news = rcg_get_posts(6); if($news->have_posts()): $i = 0;?>

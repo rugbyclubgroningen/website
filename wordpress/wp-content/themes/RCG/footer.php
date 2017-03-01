@@ -1,3 +1,11 @@
+<div class="l-full">
+    <ul class="sm-footer">
+        <li><a class="twitter" href="https://twitter.com/RCGroningen"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="facebook" href="https://www.facebook.com/rcgroningen"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="http://teamer.net"><img src="/images/teamer.png" /></a></li>
+        <li><a href="http://teamers.com"><img src="/images/teamers.png" /></a></li>
+    </ul>
+</div>
 
 <?php if(have_rows('sponsors', 'option') ): ?>
     <div class="l-full sponsorships">

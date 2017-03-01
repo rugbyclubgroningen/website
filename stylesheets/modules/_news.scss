@@ -8,6 +8,16 @@
     }
 }
 
+.news-container-full {
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-10) {
+        padding: 0;
+        @include grid(48, 5);
+    }
+}
+
 .news-container-two-third {
     @media (min-width: $breakpoint-30) {
         @include grid(48);
