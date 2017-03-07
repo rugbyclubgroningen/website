@@ -54,3 +54,18 @@ if(function_exists('acf_add_options_page') ) {
 function rcg_excerpt_length( $length ) {
 	return 35;
 } add_filter( 'excerpt_length', 'rcg_excerpt_length', 999 );
+
+// Cleanup the wp_head tag from unnessecary stuff.
+function rcg_cleanup_head_tag() {
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+
+    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+
+    add_filter('the_generator', '__return_false');
+
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+} add_action('after_setup_theme', 'rcg_cleanup_head_tag');

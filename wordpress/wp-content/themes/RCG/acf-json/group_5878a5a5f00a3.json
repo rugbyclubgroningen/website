@@ -3,16 +3,6 @@
     "title": "Extra paginainformatie",
     "fields": [
         {
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
             "key": "field_5878a5ae9ded8",
             "label": "Headerfoto",
             "name": "header_image",
@@ -24,7 +14,36 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_58be6e90f22a0",
+            "label": "Korte samenvatting",
+            "name": "short_meta_description",
+            "type": "text",
+            "instructions": "Deze samenvatting wordt gebruikt door Google om de vindbaarheid van deze pagina te vergroten. Beschrijf hier in max. 140 tekens de inhoud van deze pagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 140
         }
     ],
     "location": [
@@ -51,5 +70,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Extra informatie zoals headerfoto's, e.d.",
-    "modified": 1484302503
+    "modified": 1488875227
 }

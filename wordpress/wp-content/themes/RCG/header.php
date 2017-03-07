@@ -10,13 +10,14 @@
     <meta name="msapplication-TileImage" content="/favicon-144.png">
     <meta name="msapplication-TileColor" content="#d82e3a">
 
-    <title>Rugby Club Groningen</title>
-    <meta name="description" content="De tofste rugby club van Groningen!">
+    <title>Rugby Club Groningen | <?php the_title(); ?></title>
+    <meta name="description" content="<?php (get_field('short_meta_description') ? the_field('short_meta_description') : 'De tofste rugby club van Groningen!') ?>">
     <meta name="author" content="RCG">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <?php wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '1.0', 'all'); ?>
+    <?php wp_enqueue_style('main', get_template_directory_uri() . '/css/styles.css', array('font-awesome'), '1.0', 'all'); ?>
+
     <link rel="shortcut icon" href="/favicon-32.ico">
     <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
     <script
@@ -33,19 +34,30 @@
             });
         });
     </script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-93018253-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+    <?php wp_head(); ?>
 </head>
 <body>
 
     <?php if($header_image_arr = get_field('header_image')): ?>
         <?php $header_image = $header_image_arr['sizes']['large']; ?>
     <?php else: ?>
-        <?php $header_image = '/images/header.png'; ?>
+        <?php $header_image = get_template_directory_uri() . '/images/header.png'; ?>
     <?php endif; ?>
 
     <div class="l-wrapper header <?php if(!is_front_page()):?>page-header<?php endif; ?>" style="background-image: url('<?php echo $header_image; ?>');">
         <div class="l-full">
             <div class="logo">
-                <a href="/"><img src="/images/logo.png" alt="Rugby Club Groningen"/></a>
+                <a href="/"><img src="<?php echo get_template_directory_uri() . '/images/logo.png'; ?>" alt="Rugby Club Groningen"/></a>
             </div>
 
              <a href="#" class="navigation-toggle">
@@ -69,8 +81,8 @@
                 <ul>
                     <li><a class="twitter" href="https://twitter.com/RCGroningen"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="facebook" href="https://www.facebook.com/rcgroningen"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="http://teamer.net"><img src="/images/teamer.png" /></a></li>
-                    <li><a href="http://teamers.com"><img src="/images/teamers.png" /></a></li>
+                    <li><a href="http://teamer.net"><img src="<?php echo get_template_directory_uri() . '/images/teamer.png'; ?>" /></a></li>
+                    <li><a href="http://teamers.com"><img src="<?php echo get_template_directory_uri() . '/images/teamers.png'; ?>" /></a></li>
                 </ul>
             </div>
 

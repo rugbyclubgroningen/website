@@ -2,8 +2,8 @@
     <ul class="sm-footer">
         <li><a class="twitter" href="https://twitter.com/RCGroningen"><i class="fa fa-twitter"></i></a></li>
         <li><a class="facebook" href="https://www.facebook.com/rcgroningen"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="http://teamer.net"><img src="/images/teamer.png" /></a></li>
-        <li><a href="http://teamers.com"><img src="/images/teamers.png" /></a></li>
+        <li><a href="http://teamer.net"><img src="<?php echo get_template_directory_uri() . '/images/teamer.png'; ?>" /></a></li>
+        <li><a href="http://teamers.com"><img src="<?php echo get_template_directory_uri() . '/images/teamers.png'; ?>" /></a></li>
     </ul>
 </div>
 
@@ -29,5 +29,6 @@
 <?php endif; wp_reset_postdata(); ?>
 
 <!--<?php timer_stop(1);?>-<?php echo get_num_queries();?>q-<?php echo date("d.m.Y-H:i")?>-->
+<?php wp_footer(); ?>
 </body>
 </html>
