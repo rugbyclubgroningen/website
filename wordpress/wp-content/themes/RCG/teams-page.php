@@ -25,7 +25,7 @@
             <?php endif; ?>
 
             <?php if($scorebutton = get_field('scores_button')): ?>
-                <a class="button" href="<?php echo $scorebutton; ?>">Bekijk de laatste uitslagen</a>
+                <a class="button" href="<?php echo $scorebutton; ?>">Bekijk de competitiestand</a>
             <?php endif; ?>
         </div>
     </div>

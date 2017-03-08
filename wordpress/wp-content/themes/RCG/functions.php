@@ -93,3 +93,9 @@ function rcg_get_relevant_game_reports($post_id) {
     	),
     ));
 }
+
+// Remove categories from posts as these are unused atm.
+function rcg_remove_categories() {
+    unregister_taxonomy_for_object_type('category', 'post');
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+} add_action('init', 'rcg_remove_categories');
