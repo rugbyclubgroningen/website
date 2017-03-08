@@ -3,15 +3,6 @@
     "title": "Wedstrijdverslagen",
     "fields": [
         {
-            "layout": "vertical",
-            "choices": {
-                "yes": "Dit is een wedstrijdverslag"
-            },
-            "default_value": [],
-            "allow_custom": 0,
-            "save_custom": 0,
-            "toggle": 0,
-            "return_format": "value",
             "key": "field_584ac2e6f1b82",
             "label": "Wedstrijdverslag",
             "name": "is_game_report",
@@ -23,14 +14,18 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "layout": "vertical",
+            "choices": {
+                "yes": "Dit is een wedstrijdverslag"
+            },
+            "default_value": [],
+            "allow_custom": 0,
+            "save_custom": 0,
+            "toggle": 0,
+            "return_format": "value"
         },
         {
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
             "key": "field_584ac35e789dd",
             "label": "Naam thuis team",
             "name": "hometeam_name",
@@ -50,14 +45,14 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
-        },
-        {
+            },
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
+            "append": ""
+        },
+        {
             "key": "field_584ac382789de",
             "label": "Naam uit team",
             "name": "outteam_name",
@@ -77,14 +72,14 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
-        },
-        {
+            },
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
+            "append": ""
+        },
+        {
             "key": "field_584ac395789df",
             "label": "Score thuis team",
             "name": "hometeam_score",
@@ -104,14 +99,14 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
-        },
-        {
+            },
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
+            "append": ""
+        },
+        {
             "key": "field_584ac3ad789e0",
             "label": "Score uit team",
             "name": "outteam_score",
@@ -131,7 +126,42 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_58bfb8921182c",
+            "label": "Relevant team",
+            "name": "relevant_team",
+            "type": "post_object",
+            "instructions": "Kies hier het RCG team die bij dit wedstrijdverslag hoort. Dit zorgt er voor dat de wedstrijdverslagen bij het juiste team komen te staan op de team pagina zelf.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_584ac2e6f1b82",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -151,5 +181,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1481295744
+    "modified": 1488960310
 }

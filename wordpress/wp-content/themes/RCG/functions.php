@@ -69,3 +69,27 @@ function rcg_cleanup_head_tag() {
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
 } add_action('after_setup_theme', 'rcg_cleanup_head_tag');
+
+
+// Only show child pages of the teams page in the relationship field
+function rcg_relevant_team_filterquery( $args, $field, $post_ID) {
+    $args['post_parent'] = 9;
+
+    return $args;
+} add_filter('acf/fields/post_object/query/name=relevant_team', 'rcg_relevant_team_filterquery', 10, 3);
+
+
+// Get relevant game reports based upon the ID of a page.
+function rcg_get_relevant_game_reports($post_id) {
+    return new WP_Query(array(
+    	'numberposts'	=> -1,
+    	'post_type'		=> 'post',
+        'ignore_sticky_posts' => 1,
+    	'meta_query'	=> array(
+    		array(
+    			'key'	  	=> 'relevant_team',
+    			'value'	  	=> $post_id,
+    		),
+    	),
+    ));
+}
